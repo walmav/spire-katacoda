@@ -6,7 +6,7 @@
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Install and run the SPIRE Server",
         "text": "step1.md"
       },
       {
@@ -87,7 +87,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "code": "setup.sh"
     },
     "finish": {
       "text": "finish.md"
