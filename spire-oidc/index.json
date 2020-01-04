@@ -16,6 +16,7 @@
         "uilayout": "terminal-terminal"
     },
     "backend": {
+        "imageid": "ubuntu",
         "imageid": "ubuntu"
     }
 }
