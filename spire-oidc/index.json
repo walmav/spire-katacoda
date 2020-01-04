@@ -13,10 +13,10 @@
     ]
   },
   "assets": {
-    "host01": [
+    "client": [
       {
         "file": "server.conf",
-        "target": "/root"
+        "target": "~/"
       }
     ]
   },
