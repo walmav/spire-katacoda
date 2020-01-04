@@ -7,92 +7,10 @@
     "steps": [
       {
         "title": "Install and configure SPIRE Server",
-        "text": "step1.md"
+        "text": "step1.md",
+        "courseData": "setup.sh"
       },
-      {
-        "title": "Step 2",
-        "text": "step2.md"
-      },
-      {
-        "title": "Step 3",
-        "text": "step3.md"
-      },
-      {
-        "title": "Step 4",
-        "text": "step4.md"
-      },
-      {
-        "title": "Step 5",
-        "text": "step5.md"
-      },
-      {
-        "title": "Step 6",
-        "text": "step6.md"
-      },
-      {
-        "title": "Step 7",
-        "text": "step7.md"
-      },
-      {
-        "title": "Step 8",
-        "text": "step8.md"
-      },
-      {
-        "title": "Step 9",
-        "text": "step9.md"
-      },
-      {
-        "title": "Step 10",
-        "text": "step10.md"
-      },
-      {
-        "title": "Step 11",
-        "text": "step11.md"
-      },
-      {
-        "title": "Step 12",
-        "text": "step12.md"
-      },
-      {
-        "title": "Step 13",
-        "text": "step13.md"
-      },
-      {
-        "title": "Step 14",
-        "text": "step14.md"
-      },
-      {
-        "title": "Step 15",
-        "text": "step15.md"
-      },
-      {
-        "title": "Step 16",
-        "text": "step16.md"
-      },
-      {
-        "title": "Step 17",
-        "text": "step17.md"
-      },
-      {
-        "title": "Step 18",
-        "text": "step18.md"
-      },
-      {
-        "title": "Step 19",
-        "text": "step19.md"
-      },
-      {
-        "title": "Step 20",
-        "text": "step20.md"
-      }
     ],
-    "intro": {
-      "text": "intro.md",
-      "courseData": "setup.sh"
-    },
-    "finish": {
-      "text": "finish.md"
-    }
   },
   "assets": {
     "host01": [
@@ -103,8 +21,8 @@
     ]
   },
   "environment": {
-       "showdashboard": true,
-       "dashboard": "Dashboard",
+       "hideintro": true,
+       "hidefinish": true,
        "uilayout": "terminal-terminal",
        "uimessage1": "\u001b[32mYour Interactive SPIRE Terminal.\u001b[m\r\n"
   },
