@@ -94,19 +94,20 @@
       "text": "finish.md"
     }
   },
+  "assets": {
+    "host01": [
+      {
+        "file": "server.conf",
+        "target": "/root"
+      }
+    ]
+  },
   "environment": {
        "showdashboard": true,
        "dashboard": "Dashboard",
        "uilayout": "terminal-terminal",
        "uimessage1": "\u001b[32mYour Interactive SPIRE Terminal.\u001b[m\r\n"
   },
-
-  "assets": { "host01": [ {"file": "server.conf",
-        "target": "/root"
-      }
-    ]
-  },
-
   "backend": {
     "imageid": "ubuntu"
   }
