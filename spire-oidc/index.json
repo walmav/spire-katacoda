@@ -9,8 +9,8 @@
         "title": "Install and configure SPIRE Server",
         "text": "step1.md",
         "courseData": "setup.sh"
-      },
-    ],
+      }
+    ]
   },
   "assets": {
     "host01": [
