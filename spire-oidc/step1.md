@@ -7,4 +7,4 @@ Extract the tar:
 Configure jwt issues configuration:
 Set `jwt_issuer = ` value to https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 
-`sed 's/<JWT_ISSUER>/https:\/\/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' server.conf`{{execute HOST1}} 
+`sed -i 's/<JWT_ISSUER>/https:\/\/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' server.conf`{{execute HOST1}} 
