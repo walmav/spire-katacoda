@@ -105,7 +105,7 @@
     "host01": [
       {
         "file": "server.conf",
-        "target": "/root/spire-0.9.1/conf/server/server.conf"
+        "target": "~/"
       }
     ]
   },
