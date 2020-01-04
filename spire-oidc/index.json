@@ -6,7 +6,7 @@
   "details": {
     "steps": [
       {
-        "title": "Install and run the SPIRE Server",
+        "title": "Install and configure SPIRE Server",
         "text": "step1.md"
       },
       {
@@ -88,14 +88,26 @@
     ],
     "intro": {
       "text": "intro.md",
-      "code": "setup.sh"
+      "courseData": "setup.sh"
     },
     "finish": {
       "text": "finish.md"
     }
   },
+  "assets": {
+    "host01": [
+      {
+        "file": "server.conf",
+        "target": "/root/spire-0.9.1/conf/server.conf"
+      }
+    ],
+  },
+
   "environment": {
-    "uilayout": "terminal-terminal"
+       "showdashboard": true,
+       "dashboard": "Dashboard",
+       "uilayout": "terminal-terminal",
+       "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
   },
   "backend": {
     "imageid": "ubuntu"
