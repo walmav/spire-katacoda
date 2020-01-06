@@ -7,11 +7,11 @@
     "steps": [
       {
         "title": "Install, Configure and Run SPIRE Server",
-        "text": "step1.md",
+        "text": "step1.md"
       },
       {
         "title": "Install, Configure and Run SPIRE OIDC Discovery Provider",
-        "text": "step2.md",
+        "text": "step2.md"
       }
     ],
     "assets": {
