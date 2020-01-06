@@ -6,15 +6,22 @@
   "details": {
     "steps": [
       {
-        "title": "Install and configure SPIRE Server",
+        "title": "Install, Configure and Run SPIRE Server",
         "text": "step1.md",
-        "courseData": "setup.sh"
+      },
+      {
+        "title": "Install, Configure and Run SPIRE OIDC Discovery Provider",
+        "text": "step2.md",
       }
     ],
     "assets": {
       "host01": [
         {
           "file": "server.conf",
+          "target": "~/"
+        },
+        {
+          "file": "oidc-discovery-provider.conf",
           "target": "~/"
         }
       ]
@@ -24,7 +31,7 @@
     "hideintro": true,
     "hidefinish": true,
     "uilayout": "terminal-terminal",
-    "uimessage1": "\u001b[32mYour Interactive SPIRE Terminal.\u001b[m\r\n"
+    "uimessage1": "\u001b[32mYour Interactive SPIRE OIDC Tutorial.\u001b[m\r\n"
   },
   "backend": {
     "imageid": "docker-swarm"
