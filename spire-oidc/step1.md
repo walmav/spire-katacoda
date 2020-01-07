@@ -15,4 +15,4 @@ Set `jwt_issuer`  config to https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].envi
 
 Start SPIRE Server:
 
-`./spire-0.9.1/bin/spire-server run -config spire-0.9.1/conf/server/server.conf &`{{execute HOST1}}
+`./spire-0.9.1/bin/spire-server run -config server.conf &`{{execute HOST1}}

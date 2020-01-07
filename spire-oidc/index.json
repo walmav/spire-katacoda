@@ -12,6 +12,22 @@
       {
         "title": "Install, Configure and Run SPIRE OIDC Discovery Provider",
         "text": "step2.md"
+      },
+      {
+        "title": "Install, Configure and Run SPIRE Agent",
+        "text": "step3.md"
+      },
+      {
+        "title": "Setup OIDC Provider on AWS",
+        "text": "step4.md"
+      },
+      {
+        "title": "Create AWS IAM Roles",
+        "text": "step5.md"
+      },
+      {
+        "title": "Fetch JWT SVID and Access the s3 bucket using the JWT SVID",
+        "text": "step3.md"
       }
     ],
     "assets": {
