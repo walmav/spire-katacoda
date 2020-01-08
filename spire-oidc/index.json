@@ -27,7 +27,7 @@
       },
       {
         "title": "Fetch JWT SVID and Access the s3 bucket using the JWT SVID",
-        "text": "step3.md"
+        "text": "step6.md"
       }
     ],
     "assets": {
