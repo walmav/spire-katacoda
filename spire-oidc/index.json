@@ -40,6 +40,12 @@
           "file": "oidc-discovery-provider.conf",
           "target": "~/"
         }
+      ],
+      "host02": [
+        {
+          "file": "agent.conf",
+          "target": "~/"
+        }
       ]
     }
   },
