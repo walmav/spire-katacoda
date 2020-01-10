@@ -31,7 +31,7 @@
       }
     ],
     "assets": {
-      "host01": [
+      "host02": [
         {
           "file": "server.conf",
           "target": "~/"
@@ -41,7 +41,7 @@
           "target": "~/"
         }
       ],
-      "host02": [
+      "host01": [
         {
           "file": "agent.conf",
           "target": "~/"
