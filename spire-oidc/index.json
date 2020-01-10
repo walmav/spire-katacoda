@@ -41,7 +41,7 @@
           "target": "~/"
         }
       ],
-      "client": [
+      "host02": [
         {
           "file": "agent.conf",
           "target": "~/"
