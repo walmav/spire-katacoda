@@ -1,0 +1,13 @@
+#!/bin/bash
+
+register() {
+    kubectl exec -n spire spire-server-0 -c spire-server -- /opt/spire/bin/spire-server entry create $@
+}
+
+# Create entry for kubernetes nodes
+register \
+    -spiffeID spiffe://example.k8s.local/cluster \
+    -selector k8s_sat:cluster:example.k8s.local \
+    -selector k8s_sat:agent_ns:spire \
+    -selector k8s_sat:agent_sa:spire-agent \
+    -node

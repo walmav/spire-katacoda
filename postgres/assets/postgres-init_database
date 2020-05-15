@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cp /run/bootstrap/postgresql.conf /var/lib/postgresql
+cp /run/bootstrap/pg_hba.conf /var/lib/postgresql
+cp /usr/share/postgresql/12/pg_ident.conf.sample /var/lib/postgresql/pg_ident.conf
+chmod 0750 /var/lib/postgresql/data
+
+su - postgres -c "/usr/lib/postgresql/12/bin/pg_ctl initdb --pgdata=/var/lib/postgresql/data/"
+exec su - postgres -c "/usr/lib/postgresql/12/bin/postgres -c config_file=/var/lib/postgresql/postgresql.conf"

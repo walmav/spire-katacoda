@@ -1,0 +1,39 @@
+version: '3'
+services:
+  spire-server:
+    image: gcr.io/spiffe-io/spire-server:0.9.0
+    volumes:
+      - ./server:/run/spire/conf
+    command: ["-config", "/run/spire/conf/server.conf"]
+  spire-agent:
+    image: gcr.io/spiffe-io/spire-agent:0.9.0
+    volumes:
+      - ./agent:/run/spire
+      # This is a dirty hack
+      - ./agent/local:/usr/local/bin
+      - ./agent/opt:/opt/symbank-webapp
+    command: ["-config", "/run/spire/agent.conf"]
+    pid: "host"
+    privileged: true
+  customer-service:
+    image: nginx
+    volumes:
+      - ./customer-service:/usr/share/nginx/html
+    ports:
+      - "8000:80"
+  customer-service-envoy:
+    image: envoyproxy/envoy-alpine:v1.12.1
+    command: ["envoy", "-l", "info", "-c", "/run/envoy/envoy.yaml"]
+    volumes:
+      - ./envoy:/run/envoy
+      - ./agent/sockets:/run/spire/sockets
+    ports:
+      - "8001:8001"
+  webapp:
+    image: us.gcr.io/scytale-registry/symbank-webapp-go-api:1.0.1
+    command: ["/opt/symbank-webapp/symbank-webapp", "-config", "/run/webapp/webapp.conf"]
+    volumes:
+      - ./webapp:/run/webapp
+      - ./agent/sockets:/run/spire/sockets
+    ports:
+      - "8080:8080"

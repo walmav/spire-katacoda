@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer
+  labels:
+    app: customer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer
+  template:
+    metadata:
+      labels:
+        app: customer
+    spec:
+      containers:
+      - name: spiffe-helper
+        image: us.gcr.io/scytale-registry/spiffe-helper:0.4
+        command: ["/opt/spiffe-helper/sidecar"]
+        args: ["-config", "/run/spiffe-helper/spiffe-helper.conf"]
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: spiffe-helper
+          mountPath: /run/spiffe-helper
+          readOnly: true
+        - name: spire-agent-socket
+          mountPath: /run/spire/sockets
+          readOnly: true
+        - name: certs
+          mountPath: /run/customer-certs
+          readOnly: false
+      - name: customer
+        image: us.gcr.io/scytale-registry/symbank-customer-service:1.0.2
+        imagePullPolicy: Always
+        args: ["-config", "/run/customer/customer.conf"]
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: customer
+          mountPath: /run/customer
+          readOnly: true
+        - name: certs
+          mountPath: /run/customer-certs
+          readOnly: true
+        livenessProbe:
+          tcpSocket:
+            port: 8000
+          failureThreshold: 2
+          initialDelaySeconds: 15
+          periodSeconds: 60
+          timeoutSeconds: 3
+      volumes:
+      - name: customer
+        configMap:
+          name: customer
+      - name: spiffe-helper
+        configMap:
+          name: customer-spiffe-helper
+      - name: certs
+        emptyDir: {}
+      - name: spire-agent-socket
+        hostPath:
+          path: /run/spire/sockets
+          type: Directory

@@ -1,0 +1,13 @@
+configMapGenerator:
+- name: customer
+  files:
+  - customer.conf
+- name: customer-spiffe-helper
+  files:
+  - spiffe-helper.conf
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+- deployment.yaml
+- service.yaml

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# This is a hack for the Katacoda environment, files can take a long time
+echo "Waiting for assets. This may take a minute..."
+
+retries=50
+while
+  [[ ! -r server/server.conf ]]
+do
+  (( retries-- ))
+  sleep 5;
+  echo "Still waiting for assets..."
+done
+
+if [[ ! -r server/server.conf ]]; then
+  echo "ERROR: Timeout waiting for assets. All is lost, giving up!"
+  exit 1
+fi
+
+echo "export PS1=\"\[\e[32;1m\]\[\e[44m\]--------\[\e[40m\]\n\[\e[33;1m\]\h\[\e[32;1m\] $\[\e[0m\] \"" >>.bashrc
+
+echo "Done."
+exit 0

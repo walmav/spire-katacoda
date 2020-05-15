@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# This is a hack for the Katacoda environment, the kube-apiserver takes a long
+# time to start
+echo "Waiting for kube-apiserver to come up. This may take a few minutes..."
+
+retries=50
+while
+  pods=$(kubectl get pods --namespace=kube-system --selector=component=kube-apiserver --output=jsonpath="{..metadata.name}")
+  [[ -z $pods && $retries -gt 0 ]]
+do
+  (( retries-- ))
+  sleep 10;
+  echo "Still waiting for kube-apiserver to start..."
+done
+
+if [[ -z $pods ]]; then
+  echo "ERROR: Timeout waiting for kube-apiserver. All is lost, giving up!"
+  exit 1
+fi
+
+for pod in $pods; do
+  kubectl wait --for=condition=Ready --timeout=480s --namespace=kube-system pod/$pod
+done
+echo "kube-apiserver is up."
+
+# This is another hack around Katacoda limitations - rename all files of the
+# form "foo/foo-bar" to "foo/bar"
+for dir in *; do
+  if [[ -r $dir/$dir-kustomization.yaml ]]; then
+    for i in $dir/*; do
+      mv $i $dir/${i##$dir/$dir-}
+    done
+  fi
+done
+
+echo "Obtaining public key for validating SAT attestation."
+kubectl cp -n kube-system kube-apiserver-master:/etc/kubernetes/pki/sa.pub spire/server.cert
+
+echo "export PS1=\"\[\e[32;1m\]\[\e[44m\]--------\[\e[40m\]\n\[\e[33;1m\]\h\[\e[32;1m\] $\[\e[0m\] \"" >>.bashrc
+
+echo ""
+echo ">>>"
+echo ">>> DONE! Ready for the next step"
+echo ">>>"
+exit 0

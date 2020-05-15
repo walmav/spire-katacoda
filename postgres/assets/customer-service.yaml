@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer
+spec:
+  type: NodePort
+  ports:
+    - name: grpc
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
+  selector:
+    app: customer

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Run a command in the postgres container
+
+pod=$(kubectl get pods --selector=app=postgres --output=jsonpath="{..metadata.name}")
+kubectl exec -i $pod --container=postgres -- $@

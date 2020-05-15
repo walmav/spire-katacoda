@@ -1,0 +1,44 @@
+{
+  "title": "SPIRE using join tokens in docker",
+  "description": "Demonstrate SPIRE in docker compose with join tokens",
+  "difficulty": "Beginner",
+  "time": "60 minutes",
+  "details": {
+    "assets":
+      { "client":
+        [
+          {"file": "configure", "target": "/root", "chmod": "+x"},
+          {"file": "docker-compose.yaml", "target": "/root"},
+          {"file": "agent.conf", "target": "/root/agent"},
+          {"file": "server.conf", "target": "/root/server"}
+        ]
+      },
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md",
+        "code": "start_env"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

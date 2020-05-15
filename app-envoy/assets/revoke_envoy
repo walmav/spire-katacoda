@@ -1,0 +1,4 @@
+#!/bin/bash
+
+id=$(docker-compose exec spire-server /opt/spire/bin/spire-server entry show -selector unix:path:/usr/local/bin/envoy | grep 'Entry ID' | awk '{print $4}' | tr -d '\r')
+docker-compose exec spire-server /opt/spire/bin/spire-server entry delete -entryID $id

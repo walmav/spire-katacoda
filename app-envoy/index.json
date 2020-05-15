@@ -1,0 +1,63 @@
+{
+  "title": "App using go-spiffe to envoy",
+  "description": "Demonstrate app using go-spiffe library making requests to envoy proxy",
+  "difficulty": "Beginner",
+  "time": "60 minutes",
+  "details": {
+    "assets":
+      { "client":
+        [
+          {"file": "configure", "target": "/root", "chmod": "+x"},
+          {"file": "waitfor", "target": "/root", "chmod": "+x"},
+          {"file": "start_spire", "target": "/root", "chmod": "+x"},
+          {"file": "revoke_envoy", "target": "/root", "chmod": "+x"},
+          {"file": "docker-compose.yaml", "target": "/root"},
+          {"file": "agent-*", "target": "/root/agent"},
+          {"file": "server-*", "target": "/root/server"},
+          {"file": "customer-service-*", "target": "/root/customer-service"},
+          {"file": "envoy-*", "target": "/root/envoy"},
+          {"file": "webapp-*", "target": "/root/webapp"}
+        ]
+      },
+    "steps": [
+      {
+        "title": "Step 1",
+        "text": "step1.md",
+        "code": "start_env"
+      },
+      {
+        "title": "Step 2",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6",
+        "text": "step6.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal-iframe-split"
+  },
+  "backend": {
+    "imageid": "ubuntu",
+    "port": "8080"
+  }
+}

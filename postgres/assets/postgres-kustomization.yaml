@@ -1,0 +1,15 @@
+configMapGenerator:
+- name: postgres
+  files:
+  - postgresql.conf
+  - pg_hba.conf
+  - init_database
+- name: postgres-spiffe-helper
+  files:
+  - spiffe-helper.conf
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+- deployment.yaml
+- service.yaml

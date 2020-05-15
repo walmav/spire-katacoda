@@ -1,0 +1,4 @@
+while [[ ! -r ./configure ]]; do sleep 1; done
+./configure
+./start_spire
+exec bash

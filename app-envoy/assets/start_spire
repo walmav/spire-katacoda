@@ -1,0 +1,21 @@
+docker-compose up spire-server >spire-server.log &
+
+./waitfor spire-server
+sleep 3
+
+docker-compose exec spire-server \
+    /opt/spire/bin/spire-server bundle show > agent/bootstrap.crt
+
+TOKEN=$(docker-compose exec spire-server \
+    /opt/spire/bin/spire-server token generate -spiffeID spiffe://example.local/node | awk '{print $2}' | tr -d '\r')
+
+sed -i "s#TOKEN#${TOKEN}#g" agent/agent.conf
+
+docker-compose up spire-agent >spire-agent.log &
+
+./waitfor spire-agent
+sleep 3
+
+docker-compose exec spire-server /opt/spire/bin/spire-server entry show
+
+exec bash

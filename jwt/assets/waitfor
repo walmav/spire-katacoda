@@ -1,0 +1,3 @@
+#!/bin/bash
+
+while ! docker-compose ps | grep -Eq "${1}.+Up\s+"; do sleep 1; done

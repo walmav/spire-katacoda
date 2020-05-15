@@ -1,0 +1,28 @@
+configMapGenerator:
+- name: spire-server
+  namespace: spire
+  files:
+  - server.conf
+  - server.cert
+- name: spire-agent
+  namespace: spire
+  files:
+  - agent.conf
+- name: spire-bundle
+  namespace: spire
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+- namespace.yaml
+- server-serviceaccount.yaml
+- server-role.yaml
+- server-rolebinding.yaml
+- server-clusterrole.yaml
+- server-clusterrolebinding.yaml
+- server-deployment.yaml
+- server-service.yaml
+- agent-serviceaccount.yaml
+- agent-clusterrole.yaml
+- agent-clusterrolebinding.yaml
+- agent-deployment.yaml

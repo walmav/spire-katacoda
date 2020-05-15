@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: spiffe-helper
+        image: us.gcr.io/scytale-registry/spiffe-helper-postgres:0.4
+        command: ["su", "-", "postgres", "-c", "/opt/spiffe-helper/sidecar -config /run/spiffe-helper/spiffe-helper.conf"]
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: spiffe-helper
+          mountPath: /run/spiffe-helper
+          readOnly: false
+        - name: spire-agent-socket
+          mountPath: /run/spire/sockets
+          readOnly: true
+        - name: certs
+          mountPath: /run/database/certs
+          readOnly: false
+        - name: postgres-socket
+          mountPath: /var/run/postgresql
+          readOnly: true
+      - name: postgres
+        image: postgres:12.2
+        command: ["/bin/bash", "-xeu", "/run/bootstrap/init_database"]
+        imagePullPolicy: Always
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "SuperSecretNot"
+        ports:
+        - containerPort: 5432
+        livenessProbe:
+          tcpSocket:
+            port: 5432
+          failureThreshold: 2
+          initialDelaySeconds: 15
+          periodSeconds: 60
+          timeoutSeconds: 3
+        volumeMounts:
+          - name: postgres
+            mountPath: /run/bootstrap
+          - name: certs
+            mountPath: /run/database/certs
+            readOnly: true
+          - name: postgres-socket
+            mountPath: /var/run/postgresql
+      volumes:
+      - name: postgres
+        configMap:
+          name: postgres
+      - name: spiffe-helper
+        configMap:
+          name: postgres-spiffe-helper
+      - name: certs
+        emptyDir: {}
+      - name: spire-agent-socket
+        hostPath:
+          path: /run/spire/sockets
+          type: Directory
+      - name: postgres-socket
+        emptyDir: {}

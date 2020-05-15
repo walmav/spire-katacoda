@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# This is a hack for the Katacoda environment, files can take a long time
+echo "Waiting for assets. This may take a minute..."
+
+retries=50
+while
+  [[ ! -r webapp/webapp-webapp.conf ]]
+do
+  (( retries-- ))
+  sleep 5;
+  echo "Still waiting for assets..."
+done
+
+if [[ ! -r webapp/webapp-webapp.conf ]]; then
+  echo "ERROR: Timeout waiting for assets. All is lost, giving up!"
+  exit 1
+fi
+
+# This is another hack around Katacoda limitations - rename all files of the
+# form "foo/foo-bar" to "foo/bar"
+for dir in server agent customer-service envoy webapp; do
+  for i in $dir/*; do
+    mv $i $dir/${i##$dir/$dir-}
+  done
+done
+
+# These are just stubs to use UNIX path workload attestation to make this demo
+# simple, but not realistic
+mkdir agent/{opt,local}
+mv agent/local_envoy agent/local/envoy
+mv agent/opt_symbank-webapp agent/opt/symbank-webapp
+
+mkdir customer-service/{customers,balance,transactions}
+mv customer-service/customers-1 customer-service/customers/1
+mv customer-service/balance-1 customer-service/balance/1
+mv customer-service/transactions-1 customer-service/transactions/1
+
+echo "export PS1=\"\[\e[32;1m\]\[\e[44m\]--------\[\e[40m\]\n\[\e[33;1m\]\h\[\e[32;1m\] $\[\e[0m\] \"" >>.bashrc
+
+echo "Done."
+exit 0
