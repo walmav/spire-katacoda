@@ -5,13 +5,9 @@
   "time": "30 minutes",
   "details": {
     "assets": {
-      "host02": [
-        {"file": "agent.conf", "target": "/root"},
-        {"file": "configure", "target": "/root", "chmod": "+x"}
-      ],
       "host01": [
         {"file": "server.conf", "target": "/root"},
-        {"file": "configure", "target": "/root", "chmod": "+x"}
+        {"file": "agent.conf", "target": "/root"}
       ]
     },
     "steps": [
@@ -31,12 +27,9 @@
     ]
   },
   "environment": {
-    "showvisualise": true,
-    "scope": "docker run --name=scope -d --net=host --pid=host --privileged -v /var/run/docker.sock:/var/run/docker.sock:rw weaveworks/scope:1.9.1 --probe.docker=true",
-    "scopePort": 4040,
     "hideintro": true,
     "hidefinish": true,
-    "uilayout": "terminal-terminal"
+    "uilayout": "terminal"
 
   },
   "backend": {
