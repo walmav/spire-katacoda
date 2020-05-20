@@ -5,12 +5,12 @@
   "time": "30 minutes",
   "details": {
     "assets": {
-      "host2": [
+      "host02": [
         {
           "file": "agent.conf", "target": "/root"
         }
       ],
-      "host1": [
+      "host01": [
         {
           "file": "server.conf", "target": "/root"
         }
