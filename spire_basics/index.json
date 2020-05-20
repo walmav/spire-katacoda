@@ -4,6 +4,19 @@
   "difficulty": "Beginner",
   "time": "30 minutes",
   "details": {
+    "assets": {
+      "host01": [
+        {
+          "file": "server.conf", "target": "~/"
+        }
+      ],
+      "host02": [
+        {
+          "file": "agent.conf", "target": "~/",
+          "file": "configure", "target": "~/", "chmod": "+x"
+        }
+      ]
+    },
     "steps": [
       {
         "title": "Install, Configure and Run SPIRE Server",
@@ -18,27 +31,13 @@
         "text": "step3.md"
       }
 
-    ],
-    "assets": {
-      "host01": [
-        {
-          "file": "server.conf",
-          "target": "~/"
-        }
-      ],
-      "host02": [
-        {
-          "file": "agent.conf",
-          "target": "~/"
-        }
-      ]
-    }
+    ]
   },
   "environment": {
     "hideintro": true,
     "hidefinish": true,
-    "uilayout": "terminal-terminal",
-    "uimessage1": "\u001b[32mSPIRE Basics.\u001b[m\r\n"
+    "uilayout": "terminal-terminal"
+
   },
   "backend": {
     "imageid": "docker-swarm"
