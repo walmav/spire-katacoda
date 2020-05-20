@@ -2,7 +2,7 @@
 The next step is to register a SPIFFE ID with a set of selectors. We will use unix kernel selectors that will be mapped to a target SPIFFE ID.
 
 Create a user with uid 1001. The uid will be registered as a selector of the workload's SPIFFE ID. During kernel based attestation the workload process will be interrogated for the registered uid.
-`useradd -u 1001 workload`{{execute}} 
+`useradd -um 1001 workload`{{execute}} 
 
 Create Workload Registration Entry:
 `/opt/spire-0.9.1/bin/spire-server entry create \
