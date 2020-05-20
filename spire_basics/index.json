@@ -35,7 +35,8 @@
   "environment": {
     "hideintro": true,
     "hidefinish": true,
-    "uilayout": "terminal-terminal"
+    "uilayout": "terminal-terminal",
+    "uieditorpath": "/root"
 
   },
   "backend": {
