@@ -5,14 +5,14 @@ echo "Waiting for assets. This may take a minute..."
 
 retries=50
 while
-  [[ ! -r server/server.conf ]]
+  [[ ! -r server.conf ]]
 do
   (( retries-- ))
   sleep 5;
   echo "Still waiting for assets..."
 done
 
-if [[ ! -r server/server.conf ]]; then
+if [[ ! -r server.conf ]]; then
   echo "ERROR: Timeout waiting for assets. All is lost, giving up!"
   exit 1
 fi

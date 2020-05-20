@@ -1,0 +1,3 @@
+while [[ ! -r ./configure ]]; do sleep 1; done
+./configure
+exec bash
