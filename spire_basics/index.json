@@ -1,0 +1,46 @@
+{
+  "title": "SPIRE Basics",
+  "description": "SPIRE Basics",
+  "difficulty": "Beginner",
+  "time": "30 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Install, Configure and Run SPIRE Server",
+        "text": "step1.md"
+      },
+      {
+        "title": "Install, Configure and Run SPIRE Agent",
+        "text": "step2.md"
+      },
+      {
+        "title": "Register a workload and Fetch its corresponding SVID",
+        "text": "step3.md"
+      }
+
+    ],
+    "assets": {
+      "host01": [
+        {
+          "file": "server.conf",
+          "target": "~/"
+        }
+      ],
+      "host02": [
+        {
+          "file": "agent.conf",
+          "target": "~/"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "hideintro": true,
+    "hidefinish": true,
+    "uilayout": "terminal-terminal",
+    "uimessage1": "\u001b[32mSPIRE Basics.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker-swarm"
+  }
+}
