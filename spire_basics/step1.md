@@ -2,7 +2,7 @@ Get latest SPIRE release tar:
  `wget https://github.com/spiffe/spire/releases/download/0.9.1/spire-0.9.1-linux-x86_64-glibc.tar.gz`{{execute}}
 
 Extract the tar:
-`tar -xvf spire-0.9.1-linux-x86_64-glibc.tar.gz`{{execute}}
+`tar -xvf spire-0.9.1-linux-x86_64-glibc.tar.gz -C /opt/`{{execute}}
 
 Look at all the files in the untar directory:
 `ls -lrt spire-0.9.1`{{execute }}
@@ -19,4 +19,4 @@ Configure the `trust_domain` of the SPIRE Server in server.conf, This can be set
 
 Start SPIRE Server:
 
-`./spire-0.9.1/bin/spire-server run -config server.conf &`{{execute}}
+`/opt/spire-0.9.1/bin/spire-server run -config server.conf &`{{execute}}
