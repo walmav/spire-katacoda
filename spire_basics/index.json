@@ -5,12 +5,12 @@
   "time": "30 minutes",
   "details": {
     "assets": {
-      "host01": [
+      "host1": [
         {
           "file": "server.conf", "target": "/root"
         }
       ],
-      "host02": [
+      "host2": [
         {
           "file": "agent.conf", "target": "/root"
         }
@@ -35,8 +35,7 @@
   "environment": {
     "hideintro": true,
     "hidefinish": true,
-    "uilayout": "terminal-terminal",
-    "uieditorpath": "/root"
+    "uilayout": "terminal-terminal"
 
   },
   "backend": {

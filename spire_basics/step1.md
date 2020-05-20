@@ -10,10 +10,10 @@ Look at all the files in the untar directory:
 Look at the server configuration file:
 `cat server.conf`{{execute HOST1}}
 
-The TRUST DOMAIN:
+TRUST DOMAIN:
 The trust domain corresponds to the trust root of a system. A trust domain could represent an individual, organization, environment or department running their own independent SPIFFE infrastructure. All workloads identified in the same trust domain are issued identity documents that can be verified against the root keys of the trust domain.
 
-Configure the `trust_domain` of the SPIRE Server to [[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com in server.conf, This can be set to any arbitrary host part of the authority component of the URI as defined in the SPIFFE standard: https://github.com/spiffe/spiffe/blob/master/standards/SPIFFE-ID.md#21-trust-domain
+Configure the `trust_domain` of the SPIRE Server in server.conf, This can be set to any arbitrary host part of the authority component of the URI as defined in the SPIFFE standard: https://github.com/spiffe/spiffe/blob/master/standards/SPIFFE-ID.md#21-trust-domain
 
 `sed -i 's/<TRUST_DOMAIN>/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' server.conf`{{execute HOST1}}
 
