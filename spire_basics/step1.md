@@ -1,4 +1,4 @@
-First, you retrieve the latest SPIRE release to the machine you intend to perform the installation from:
+First, retrieve the latest SPIRE release to the machine you intend to perform the installation from:
  `wget https://github.com/spiffe/spire/releases/download/0.9.1/spire-0.9.1-linux-x86_64-glibc.tar.gz`{{execute}}
 
 Once you have the file, proceed to extract/uncompress the tarball:
