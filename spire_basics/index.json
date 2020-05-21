@@ -24,10 +24,12 @@
         "text": "step3.md"
       }
 
-    ]
+    ],
+    "intro": {
+      "text": "intro.md"
+    }
   },
   "environment": {
-    "hideintro": true,
     "hidefinish": true,
     "uilayout": "terminal"
 
