@@ -1,6 +1,6 @@
 {
-  "title": "Postgres with SVID auth",
-  "description": "Demonstrate postgres using SVID authentication with SPIFFE/SPIRE",
+  "title": "SPIFFE/SPIRE: X.509-SVID Authentication to Postgres",
+  "description": "SPIFFE/SPIRE: Demonstrate X.509-SVID Authentication to Postgres",
   "difficulty": "Beginner",
   "time": "60 minutes",
   "details": {
