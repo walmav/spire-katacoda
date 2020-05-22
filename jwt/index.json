@@ -1,6 +1,6 @@
 {
-  "title": "SPIRE authentication using JWT",
-  "description": "Demonstrate spire-agent creating and validating JWTs",
+  "title": "SPIFFE/SPIRE: Authentication using JWT-SVID",
+  "description": "Demonstrate Spire Agent creating and validating JWTs",
   "difficulty": "Beginner",
   "time": "60 minutes",
   "details": {
