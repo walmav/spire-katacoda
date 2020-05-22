@@ -1,6 +1,6 @@
 {
-  "title": "SPIRE using join tokens in docker",
-  "description": "Demonstrate SPIRE in docker compose with join tokens",
+  "title": "SPIFFE/SPIRE: Docker Compose with Join Token Node Attestation",
+  "description": "Demonstrate SPIRE in docker compose using join token attestation",
   "difficulty": "Beginner",
   "time": "60 minutes",
   "details": {
