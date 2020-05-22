@@ -1,6 +1,6 @@
 {
-  "title": "spire-oidc",
-  "description": "SPIFFE/SPIRE: Federation to Amazon Web Services OIDC Provider",
+  "title": "SPIFFE/SPIRE: Federation to Amazon Web Services OIDC Provider",
+  "description": "Federation to Amazon Web Services OIDC Provider",
   "difficulty": "Intermediate",
   "time": "60 minutes",
   "details": {
