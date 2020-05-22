@@ -1,6 +1,6 @@
 {
-  "title": "SPIRE using SAT attestation in k8s",
-  "description": "SPIFFE/SPIRE: Authenticating to and from Kubernetes services",
+  "title": "SPIFFE/SPIRE: Authenticating to and from Kubernetes services",
+  "description": "Authenticating to and from Kubernetes services",
   "difficulty": "Beginner",
   "time": "60 minutes",
   "details": {
