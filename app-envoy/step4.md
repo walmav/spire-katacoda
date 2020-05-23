@@ -54,6 +54,7 @@ To obtain a validation context for a trust domain, you can configure a validatio
           tls_params:
             ecdh_curves:
               - X25519:P-256:P-521:P-384
+</pre>
 
 # Launch Envoy
 
