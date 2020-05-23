@@ -34,40 +34,10 @@ static_resources:
                   cluster: customer_service
           http_filters:
           - name: envoy.router
-      tls_context:
-        common_tls_context:
-          tls_certificate_sds_secret_configs:
-          - name: "spiffe://example.local/customer-service"
-            sds_config:
-              api_config_source:
-                api_type: GRPC
-                grpc_services:
-                  envoy_grpc:
-                    cluster_name: spire_agent
-          combined_validation_context:
-            # validate the SPIFFE ID of incoming clients
-            default_validation_context:
-              verify_subject_alt_name:
-                - "spiffe://example.local/webapp"
-            # obtain the trust bundle from SDS
-            validation_context_sds_secret_config:
-              name: "spiffe://example.local"
-              sds_config:
-                api_config_source:
-                  api_type: GRPC
-                  grpc_services:
-                    envoy_grpc:
-                      cluster_name: spire_agent
-          tls_params:
-            ecdh_curves:
-              - X25519:P-256:P-521:P-384
+#ADD_TLS_CONTEXT
+#ADD_VALIDATION_CONTEXT
   clusters:
-  - name: spire_agent
-    connect_timeout: 0.25s
-    http2_protocol_options: {}
-    hosts:
-      - pipe:
-          path: /run/spire/sockets/agent.sock
+#ADD_SPIRE_AGENT_CLUSTER
   - name: customer_service
     connect_timeout: 0.25s
     type: strict_dns

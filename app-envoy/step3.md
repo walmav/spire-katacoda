@@ -1,8 +1,7 @@
-# Launch nginx
+# Deploy Customer Service
 
-nginx is being used to simulate an application with a JSON API that the
-`webapp` application uses to fetch data. An envoy proxy will be deployed in
-the next step to proxy requests from the webapp to nginx.
+Deploy NGINX serving static content to simulate Customer Service JSON API. The
+`webapp` application uses the JSON API to fetch data. We deploy Envoy proxy in the next step to proxy requests from the webapp to NGINX.
 
 `docker-compose up customer-service >customer-service.log &`{{execute}}
 
