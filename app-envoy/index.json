@@ -58,9 +58,8 @@
     "hideHiddenFiles": true,
     "uilayout": "editor-terminal",
     "uisettings": "yaml",
-    "uieditorpath":"/root/envoy"
+    "uieditorpath":"/root/envoy/"
   },
-  "files": ["envoy.yaml"],
   "backend": {
     "imageid": "ubuntu",
     "port": "8080"
