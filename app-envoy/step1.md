@@ -1,4 +1,4 @@
-# Deploying SPIRE server and agent
+# Deploy SPIRE server and agent
 
 This demo uses a script to deploy SPIRE into the environment, using a join
 token to attest the agent. See the `SPIRE using join tokens in docker`
