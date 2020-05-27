@@ -1,23 +1,13 @@
-# App using go-spiffe to envoy
+# Using Envoy to Provide Dynamic Service Identity using SPIRE
 
-This demonstration shows a go application using the go-spiffe library to
-make requests to a backend service. The backend service uses an envoy proxy.
+Envoy is a popular open-source service proxy that, among other things, is widely used to provide abstracted, secure, authenticated and encrypted communication between services. Envoy enjoys a rich configuration system that allows for flexible third-party interaction.
+One component of this configuration system is the Secret Discovery Service protocol or SDS. Envoy uses SDS to retrieve and maintain updated “secrets” from SDS providers. In the context of authentication, these secrets are the TLS certificates, private keys, and trusted CA certificates Envoy uses to provide secure TLS communication between services.
 
-This shows how SPIFFE/SPIRE can be leveraged at different layers within an
-application. If an application cannot be modified to use a native SPIFFE
-library, envoy can be used.
+When Envoy connects to the SDS server the SPIRE Agent attests Envoy and determines which service identities and CA certificates it should make available to Envoy over SDS.
 
-For this demo, the `webapp` application, written in `go`, uses the native
-go-spiffe library.
+The `customer service` backend is serving static content using NGINX to simulate Customer Service JSON API. The
+`webapp` frontend is configured to fetch data from the JSON API exposed by the `customer service`. Envoy is deployed to proxy requests on behalf of the `customer service`.
 
-The `customer-service` backend application is simply `nginx` serving static
-content, with envoy as a proxy to handle SVIDs.
-
-[TODO: Add additional flavor about this demo, the reasons for this use-case,
-etc.]
-
-[TODO: Add links to other relevant documentation]
-
-[TODO: Improve (redo) the diagram]
+The `webapp` frontend, written in `go`, uses the native go-spiffe library. The detailed documentation of using go-spiffe library is here: [go-spiffe v2 documentation and examples](https://pkg.go.dev/github.com/spiffe/go-spiffe/v2)
 
 ![Scenario diagram](assets/scenario-diagram.png)

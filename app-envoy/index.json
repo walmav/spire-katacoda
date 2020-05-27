@@ -1,6 +1,6 @@
 {
-  "title": "SPIFFE/SPIRE: Using the SPIFFE Go Language Library ",
-  "description": "The go-spiffe Go language library allows an application to natively obtain and validate SVIDs, as well as establish mTLS. This scenario shows an application using go-spiffe to communicate to the envoy proxy sidecar of an application that does not use go-spiffe.",
+  "title": "SPIFFE/SPIRE: Using Envoy ",
+  "description": "Envoy The go-spiffe Go language library allows an application to natively obtain and validate SVIDs, as well as establish mTLS. This scenario shows an application using go-spiffe to communicate to the envoy proxy sidecar of an application that does not use go-spiffe.",
   "difficulty": "Beginner",
   "time": "60 minutes",
   "details": {
@@ -23,7 +23,6 @@
       {
         "title": "Step 1",
         "text": "step1.md",
-        "code": "start_env"
       },
       {
         "title": "Step 2",
@@ -47,7 +46,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "code": "start_env"
     },
     "finish": {
       "text": "finish.md"
