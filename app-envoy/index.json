@@ -1,5 +1,5 @@
 {
-  "title": "SPIFFE/SPIRE: Providing dynamic service identities to Envoy workloads through SPIRE",
+  "title": "SPIFFE/SPIRE: Providing dynamic service identities to Envoy workloads",
   "description": "Configure Envoy to use SPIRE as a Secret Discovery Service(SDS) Server, allowing Envoy to dynamically retrieve and rotate workload identities",
   "difficulty": "Intermediate",
   "time": "30 minutes",
