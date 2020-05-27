@@ -1,5 +1,5 @@
 
-#Deploy `customer service` application
+# Deploy customer service application
 
 ### Start  `customer service` application by running the following docker compose command:
 

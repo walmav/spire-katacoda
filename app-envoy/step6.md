@@ -1,9 +1,7 @@
-# Refresh application
+# View the webapp in another browser tab:
 
-Click the `Display Port` button if the webapp isn't showing yet (don't change
-the port).
-
-Once the page refreshes, you should be looking at a bank transaction log for
+The webapp is hosted here click [[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com to open the webapp in a browser tab.
+The page automatically refreshes, you should be looking at a bank transaction log for
 "Jacob Marley".
 
 # Delete registration entry
@@ -19,4 +17,4 @@ moment for the entry to be revoked, then the application will stop working
 
 If you go back to step 2 and re-run the command to "Create entry for
 customer-service-envoy container", then the application will start to work
-again once the entry is registered and the workload is reattested.
+again once the entry is registered and the workload is re-attested.

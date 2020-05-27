@@ -1,8 +1,8 @@
 {
-  "title": "SPIFFE/SPIRE: Using Envoy ",
-  "description": "Envoy The go-spiffe Go language library allows an application to natively obtain and validate SVIDs, as well as establish mTLS. This scenario shows an application using go-spiffe to communicate to the envoy proxy sidecar of an application that does not use go-spiffe.",
-  "difficulty": "Beginner",
-  "time": "60 minutes",
+  "title": "SPIFFE/SPIRE: Providing dynamic service identities to Envoy workloads through SPIRE",
+  "description": "Configure Envoy to use SPIRE as a Secret Discovery Service(SDS) Server, allowing Envoy to dynamically retrieve and rotate workload identities",
+  "difficulty": "Intermediate",
+  "time": "30 minutes",
   "details": {
     "assets":
       { "client":

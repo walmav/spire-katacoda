@@ -13,21 +13,6 @@ The connect_timeout influences how fast Envoy will be able to respond if the SPI
           path: /run/spire/sockets/agent.sock
 </pre>
 
-## Envoy Configuration
-### Configure SPIRE Agent Cluster:
-Envoy must be configured to communicate with the SPIRE Agent by configuring a cluster that points to the Unix domain socket the SPIRE Agent provides.
-The connect_timeout influences how fast Envoy will be able to respond if the SPIRE Agent is not running when Envoy is started or if the SPIRE Agent is restarted.
-
-<pre class="file" data-filename="envoy.yaml" data-target="insert" data-marker="#ADD_SPIRE_AGENT_CLUSTER">
-
-  - name: spire_agent
-    connect_timeout: 0.25s
-    http2_protocol_options: {}
-    hosts:
-      - pipe:
-          path: /run/spire/sockets/agent.sock
-</pre>
-
 ### Configure TLS Context
 To obtain a TLS certificate and private key from SPIRE, you can set up an SDS configuration within a TLS context.
 The name of the TLS certificate is the SPIFFE ID of the service that Envoy is acting as a proxy for.

@@ -1,6 +1,6 @@
 # Register SPIRE workload entries
 
-We need to create two workload entries in spire-server - one for the
+We create two workload entries in spire-server - one for the
 customer-service envoy container, and another for the webapp frontend.
 
 # Create entry for customer-service-envoy container
