@@ -1,6 +1,3 @@
-
-# Deploy customer service application
-
 ### Start  `customer service` application by running the following docker compose command:
 
 `docker-compose up customer-service >customer-service.log &`{{execute}}

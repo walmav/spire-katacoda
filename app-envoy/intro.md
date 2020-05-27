@@ -8,6 +8,8 @@ When Envoy connects to the SDS server the SPIRE Agent attests Envoy and determin
 The `customer service` backend is serving static content using NGINX to simulate Customer Service JSON API. The
 `webapp` frontend is configured to fetch data from the JSON API exposed by the `customer service`. Envoy is deployed to proxy requests on behalf of the `customer service`.
 
-The `webapp` frontend, written in `go`, uses the native go-spiffe library. The detailed documentation of using go-spiffe library is here: [go-spiffe v2 documentation and examples](https://pkg.go.dev/github.com/spiffe/go-spiffe/v2)
+The `webapp` frontend is written in `go` and uses the native `go-spiffe` library to obtain its [x509 SVID](https://github.com/spiffe/spiffe/blob/master/standards/X509-SVID.md) and Establishing mutually authenticated TLS (mTLS) with the `customer service` backend. 
+ Although out of scope in this context, the detailed documentation of using go-spiffe library is here: [go-spiffe v2 documentation and examples](https://pkg.go.dev/github.com/spiffe/go-spiffe/v2?tab=overview)
+
 
 ![Scenario diagram](assets/scenario-diagram.png)
