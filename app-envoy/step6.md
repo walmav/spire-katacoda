@@ -1,6 +1,6 @@
 # View the webapp in another browser tab:
 
-The webapp is hosted here click [[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com to open the webapp in a browser tab.
+Click https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com to open the webapp in a browser tab.
 The page automatically refreshes, you should be looking at a bank transaction log for
 "Jacob Marley".
 
