@@ -16,8 +16,10 @@ echo $db_cmd
 echo $db_cmd | postgres/run psql -U postgres
 ```{{execute}}
 
-Feel free to go back and exercise the API via curl - note that the application
-continues to function.
+Exercise the API via curl - note that the application continues to function:
+
+`curl $(kubectl get service customer -o jsonpath="{..spec.clusterIP}"):8000/customers/1`{{execute}}
+
 
 # Disable user
 
@@ -27,3 +29,9 @@ Note that standard postgres privileges still apply. The following will deny
 `echo "ALTER USER symuser WITH NOLOGIN" | postgres/run psql -U postgres`{{execute}}
 
 The application will now return an error.
+
+#Re-enable user
+
+`echo "ALTER USER symuser WITH LOGIN" | postgres/run psql -U postgres`{{execute}}
+
+

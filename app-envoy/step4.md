@@ -1,4 +1,5 @@
 ### Configure SPIRE Agent Cluster:
+Click on the Envoy.
 Envoy must be configured to communicate with the SPIRE Agent by configuring a cluster that points to the Unix domain socket the SPIRE Agent provides.
 The connect_timeout influences how fast Envoy will be able to respond if the SPIRE Agent is not running when Envoy is started or if the SPIRE Agent is restarted.
 

@@ -12,15 +12,26 @@ In the previous step, we seeded the DB with two customers, having IDs `1` and
 
 # Revisit logs
 
-This is a good time to go back to the previous steps and review all the log
+This is a good time to review all the log
 files.
 
 + spire-server and spire-agents logs will show SVID creation and rotation, and
   workload attestation.
+  
+  `kubectl logs -n spire --selector app=spire-server`{{execute}}
+
 + postgres logs will show configuration reloads as certificates are rotated.
+  
+  `kubectl logs --selector app=postgres --container=postgres`{{execute}}
+
 + customer logs will show the connection string used to access postgres.
+  
+  `kubectl logs --selector app=customer --container=customer`{{execute}}
+
 + spiffe-helper logs will show output from the commands executed when
   certificates are rotated.
+  
+  `kubectl logs --selector app=customer --container=spiffe-helper`{{execute}}
 
 Certificates are rotated based on the expiration time, which is controlled
 by the TTL value in SPIRE registration entries.
