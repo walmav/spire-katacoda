@@ -1,20 +1,13 @@
-# Postgres with SVID auth
+# Authenticating to Postgres Database with X.509-SVID '
+The scenario show cases how we can use SPIRE issued identities (X.509 certificates) to directly authenticate to databases using their standard, built-in PKI authentication. 
+This approach does not rely on a secret store, instead short-lived asymmetric keys encrypt all traffic to the database so it's secure even if your network is compromised. 
 
-This demonstration shows the use of an SVID to enable a service to connect to
-a postgres database using TLS client certificates. SPIRE, with the help of the
-`spiffe-helper` sidecar handles workload attestation, as well as generation and
-rotation of the TLS certificates.
+The scenario sets up on a Kubernetes cluster, the nodes in the kubernetes cluster use SAT(Service Account Token) node attestation.
+The SPIRE Server is deployed as a stateful set and SPIRE agents is deployed as daemonset. 
+The deployment and configuration details of running spire on kubernetes is beyond the scope of this demo aside from performing the
+necessary steps to deploy SPIRE into the cluster and to create the node and workload attestation entries.
 
-This is run inside a Kubernetes cluster using SAT node attestation, however the
-SPIRE configuration is beyond the scope of this demo aside from performing the
-necessary steps to deploy SPIRE into the cluster and to create the node and
-workload attestion entries.
+Constrained by the katacoda demo environment, both the postgres database and customer application are deployed on kubernetes, but the same authentication construct can be applied in any deployment scenario disjoint of where the workload and database are deployed.
 
-[TODO: Add additional flavor about this demo, the reasons for this use-case,
-the value prop, etc.]
-
-[TODO: Add links to other relevant documentation]
-
-[TODO: Improve (redo) the diagram]
 
 ![Scenario diagram](assets/scenario-diagram.png)
