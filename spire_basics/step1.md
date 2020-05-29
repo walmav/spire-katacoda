@@ -1,17 +1,14 @@
-First, retrieve the latest SPIRE release to the machine you intend to perform the installation from:
- `wget https://github.com/spiffe/spire/releases/download/0.9.1/spire-0.9.1-linux-x86_64-glibc.tar.gz`{{execute}}
+Download the SPIRE tarball:
+`wget --no-verbose --show-progress https://github.com/spiffe/spire/releases/download/0.9.1/spire-0.9.1-linux-x86_64-glibc.tar.gz`{{execute}}
 
-Once you have the file, proceed to extract/uncompress the tarball:
+Extract the tarball:
 `tar -xvf spire-0.9.1-linux-x86_64-glibc.tar.gz -C /opt/`{{execute}}
 
 The tarball includes: 
 * The spire-agent and spire-server binaries
 * Configuration files for the SPIRE Agent and Server
 
-You can examine the files in the uncompressed directory:
-`ls -lrt /opt/spire-0.9.1`{{execute }}
-
-As we are about to install the server, you want to pay particular attention at the server configuration file:
+Before we install the server, let's see the server configuration file:
 `cat server.conf`{{execute}}
 
 Configure the `trust_domain` of the SPIRE Server in server.conf. The value corresponds to the host part of the authority component of the URI as defined in the SPIFFE standard: https://github.com/spiffe/spiffe/blob/master/standards/SPIFFE-ID.md#21-trust-domain
