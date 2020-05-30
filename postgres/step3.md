@@ -1,7 +1,8 @@
 # Register SPIRE workloads
 
-The following script will create workload and node attestation registration
-entries in SPIRE. Workloads are registered on spire-server:
+The following script creates attestation registration entries on the
+SPIRE Server for the nodes (hosts), Postgres database, and the
+sample application:
 
 `cat spire/register_workloads`{{execute}}
 
@@ -13,6 +14,9 @@ Run the script:
 
 `bash spire/register_workloads`{{execute}}
 
-Show the registration entries:
+The output shows the three SPIFFE IDs created and the selectors used
+to uniquely identify each registration entry.
+
+To see the registration entries again at a later time, you can run the following command:
 
 `kubectl exec -n spire spire-server-0 -- /opt/spire/bin/spire-server entry show`{{execute}}

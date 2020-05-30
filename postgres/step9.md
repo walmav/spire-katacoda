@@ -6,9 +6,9 @@ provided by spiffe-helper:
 
 `cat customer/customer.conf`{{execute}}
 
-The spiffe-helper configuration specifies where the certificates and key are
-placed (this directory is shared by both the `customer` and `spiffe-helper`
-containers within the pod):
+The `spiffe-helper` configuration specifies where the certificates and key are
+placed. The `certDir` directory is shared by both the `customer` and `spiffe-helper`
+containers within the pod:
 
 `cat customer/spiffe-helper.conf`{{execute}}
 
