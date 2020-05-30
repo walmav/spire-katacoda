@@ -1,15 +1,16 @@
-# Launch webapp
+## Launch webapp
 
-Launch the webapp
+Launch the webapp:
 
 `docker-compose up webapp >webapp.log &`{{execute}}
 
-# Wait for container to start
+You can immediately run the following command to wait for the container to start:
 
 `./waitfor webapp`{{execute}}
 
-# Logs
-
-To view the `webapp` log:
+When you see `Creating root_webapp_1 ... done`, view the `webapp` log:
 
 `cat webapp.log`{{execute}}
+
+You should see `Status: Downloaded newer image for
+us.gcr.io/scytale-registry/symbank-webapp-go-api:1.0.1` in the log.

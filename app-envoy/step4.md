@@ -1,7 +1,13 @@
-### Configure SPIRE Agent Cluster:
-Click on the Envoy.
+## Configure SPIRE Agent Cluster
+
+Click **envoy.yaml** in the frame to the right of this text to
+display the Envoy configuration file.
+
 Envoy must be configured to communicate with the SPIRE Agent by configuring a cluster that points to the Unix domain socket the SPIRE Agent provides.
-The connect_timeout influences how fast Envoy will be able to respond if the SPIRE Agent is not running when Envoy is started or if the SPIRE Agent is restarted.
+The `connect_timeout` for `spire-agent` influences how fast Envoy will be able to respond if the SPIRE Agent is not running when Envoy is started or if the SPIRE Agent is restarted.
+
+Click **Copy to Editor** to insert the `connect_timeout` for
+`spire-agent` configuration into the Envoy configration file.
 
 <pre class="file" data-filename="envoy.yaml" data-target="insert" data-marker="#ADD_SPIRE_AGENT_CLUSTER">
 
@@ -13,9 +19,13 @@ The connect_timeout influences how fast Envoy will be able to respond if the SPI
           path: /run/spire/sockets/agent.sock
 </pre>
 
-### Configure TLS Context
+## Configure TLS Context
 To obtain a TLS certificate and private key from SPIRE, you can set up an SDS configuration within a TLS context.
 The name of the TLS certificate is the SPIFFE ID of the service that Envoy is acting as a proxy for.
+
+Click **Copy to Editor** to insert the SDS configuration into the
+Envoy configuration file.
+
 <pre class="file" data-filename="envoy.yaml" data-target="insert" data-marker="#ADD_TLS_CONTEXT">
       tls_context:
         common_tls_context:
@@ -29,9 +39,13 @@ The name of the TLS certificate is the SPIFFE ID of the service that Envoy is ac
                     cluster_name: spire_agent
 </pre>
 
-### Configure Validation Context
+## Configure Validation Context
 Envoy uses trusted CA certificates to verify peer certificates. Validation Contexts provide these trusted CA certificates. SPIRE can provide a validation context per trust domain.
 To obtain a validation context for a trust domain, you can configure a validation context within the SDS configuration of a TLS context, setting the name of the validation context to the SPIFFE ID of the trust domain.
+
+Click **Copy to Editor** to insert the validation context configuration into the
+Envoy configuration file.
+
 <pre class="file" data-filename="envoy.yaml" data-target="insert" data-marker="#ADD_VALIDATION_CONTEXT">
           combined_validation_context:
             # validate the SPIFFE ID of incoming clients
@@ -54,17 +68,19 @@ To obtain a validation context for a trust domain, you can configure a validatio
 
 ## Launch Envoy
 
-Next, we'll deploy the envoy proxy, which handles all the SPIFFE/SPIRE work
-such as SVID, certificate rotation, terminating mTLS, and so on.
+Next, we'll deploy the Envoy proxy, which handles all the SPIFFE/SPIRE work
+such as SVID management, certificate rotation, terminating mTLS, and so on.
 
-### Start `envoy` by running the following docker compose command:
+Start Envoy by running the following `docker-compose` command:
 
 `docker-compose up customer-service-envoy >customer-service-envoy.log &`{{execute}}
 
-### Wait for the container to start:
+You can immediately run the following command to wait for the container to start:
+
 `./waitfor customer-service-`{{execute}}
 
-### Check the ENVOY Logs to ensure it is started:
-To view the `envoy` log:
+Check the Envoy log to ensure Envoy has started:
 
 `cat customer-service-envoy.log`{{execute}}
+
+At the end of the log, you should see `all dependencies initialized. starting workers`.
