@@ -9,6 +9,8 @@ to function as we are using client certificates for authentication.
 
 # Set password to a new random value
 
+Run the following command to set the password to a new random value:
+
 ```
 user_pass=$(openssl rand -base64 32)
 db_cmd=$(echo "ALTER USER symuser WITH encrypted password '$user_pass';")
@@ -16,22 +18,23 @@ echo $db_cmd
 echo $db_cmd | postgres/run psql -U postgres
 ```{{execute}}
 
-Exercise the API via curl - note that the application continues to function:
+Exercise the API via `curl` - note that the application continues to function:
 
 `curl $(kubectl get service customer -o jsonpath="{..spec.clusterIP}"):8000/customers/1`{{execute}}
 
 
 # Disable user
 
-Note that standard postgres privileges still apply. The following will deny
+Standard Postgres privileges still apply. The following command will deny
 `symuser` from logging in to the DB:
 
 `echo "ALTER USER symuser WITH NOLOGIN" | postgres/run psql -U postgres`{{execute}}
 
 The application will now return an error.
 
-#Re-enable user
+# Re-enable user
 
+Re-enable the user with the following command:
 `echo "ALTER USER symuser WITH LOGIN" | postgres/run psql -U postgres`{{execute}}
 
 
