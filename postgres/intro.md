@@ -9,5 +9,14 @@ necessary steps to deploy SPIRE into the cluster and to create the node and work
 
 Constrained by the katacoda demo environment, both the postgres database and customer application are deployed on kubernetes, but the same authentication construct can be applied in any deployment scenario disjoint of where the workload and database are deployed.
 
+During the exercise you will: 
+1. Deploy SPIRE on kubernetes
+2. Register `postgres database` and `customer service` workloads with SPIRE
+3. Deploy `postgres database` and `customer service` workloads 
+4. Examine `postgres database` configuration that restrict SSL only connections
+5. Examine `spiffe-helper` configuration that manage the posgres SSL certificates 
+6. Examine `customer service` and corresponding `spiffe-helper` configuration
+7. Verify mTLS connectivity between `customer service` and `postgres database` by disabling and re-enabling the database client user.
+
 
 ![Scenario diagram](assets/scenario-diagram.png)
