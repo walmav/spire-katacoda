@@ -25,7 +25,7 @@ To look at spire-server log:
 `kubectl logs -n spire --selector app=spire-server`{{execute}}
 
 In the SPIRE Server log you should see a line similar to the following
-to indicate that SAT attestation has completed:
+to indicate that SAT attestation has been initiated:
 `time="2020-05-30T00:13:12Z" level=info msg="Node attestation request completed" address="10.32.0.1:43428" attestor=k8s_sat method=node_api spiffe_id="spiffe://example.k8s.local/spire/agent/k8s_sat/example.k8s.local/642ae7cd-77af-4c95-99bd-ea815dd998a2" subsystem_name=node_api`
 
 To look at spire-agent log:

@@ -1,6 +1,6 @@
 # Test Service
 
-Run the customer service application to list a customer in the Postres database:
+Run the customer service application to list a customer in the Postgres database:
 
 `curl $(kubectl get service customer -o jsonpath="{..spec.clusterIP}"):8000/customers/1`{{execute}}
 
