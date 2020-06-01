@@ -1,26 +1,39 @@
 # Deploy Postgres
 
-Apply the deployment:
+Apply the Postgres deployment:
 
 `kubectl apply -k postgres`{{execute}}
 
-Wait for Postgres to start:
+Use the following command to check that the Postgres pod is in a Running state:
 
 `kubectl get pod --selector=app=postgres`{{execute}}
 
-Two containers in this pod are launched - `postgres` for the database, and
-`spiffe-helper` which handles TLS certificates and rotation.
+Keep running the above `kubectl get` command until the pod is displayed as `Running`
+underneath `STATUS`.
+
+**It will take about 30 seconds for the pod to start.**
+
+Two containers in this pod are launched - `postgres` for the database,
+and `spiffe-helper` which handles TLS certificates and rotation. To
+verify these containers, run:
+
+`kubectl get pods -l app=postgres -o jsonpath='{.items[*].spec.containers[*].name}{"\n"}'`{{execute}}
 
 # Postgres logs
 
-To look at postgres logs:
+As you go through this demo, you may want to check the Postgres and
+the Postgres `spiffe-helper` logs to see how various actions affect
+each of them.
+
+To look at Postgres log:
 
 `kubectl logs --selector app=postgres --container=postgres`{{execute}}
 
-To look at spiffe-helper logs:
+It's normal to see `received SIGHUP, reloading configuration files` in
+the Postgres log at this point in the demo.
+
+To look at spiffe-helper log:
 
 `kubectl logs --selector app=postgres --container=spiffe-helper`{{execute}}
-
-**It will take about 30 seconds for the postgres pod to start.**
 
 # When the postgres pod is Running, continue to the next step
