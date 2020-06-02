@@ -18,7 +18,7 @@ underneath `STATUS`.
 
 Two containers in this pod are launched - `customer` for the customer
 service, and `spiffe-helper` which handles TLS certificates and
-rotation. To verify these containers, run:
+rotation. To show these containers, run:
 
 `kubectl get pods -l app=customer -o jsonpath='{.items[*].spec.containers[*].name}{"\n"}'`{{execute}}
 
@@ -32,7 +32,7 @@ To look at customer service API log (note there is no output unless an error occ
 
 `kubectl logs --selector app=customer --container=customer`{{execute}}
 
-To look at spiffe-helper log:
+To look at `spiffe-helper` log:
 
 `kubectl logs --selector app=customer --container=spiffe-helper`{{execute}}
 

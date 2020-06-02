@@ -1,7 +1,7 @@
 # A deeper look - Postgres pod
 
 The Postgres configuration enables SSL and configures a path for the
-certificates and key which are provided by spiffe-helper:
+certificates and key which are provided by `spiffe-helper`:
 
 `cat postgres/postgresql.conf`{{execute}}
 
@@ -10,7 +10,7 @@ forces SSL connections to use a client certificate:
 
 `cat postgres/pg_hba.conf`{{execute}}
 
-The `spiffe-helper` configuration specifies where the certificates and key are
+The `spiffe-helper` configuration for Postgres specifies where the certificates and key are
 placed. The `certDir` directory is shared by both the `postgres` and `spiffe-helper`
 containers within the pod:
 
