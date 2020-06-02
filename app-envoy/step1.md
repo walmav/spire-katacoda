@@ -5,8 +5,8 @@ environment, using a join token to attest the agent. See the *SPIRE
 using join tokens in docker* scenario to learn more about this and
 manually go through what this scenario does automatically.
 
-**Please wait until you see a SPIRE registration entry (`Entry ID :
-...`) and a shell prompt (`host01 $`) before continuing.**
+**Please wait until you see a SPIRE registration entry (`Entry ID : ...`)
+and a shell prompt (`host01 $`) before continuing.**
 
 # Logs
 
