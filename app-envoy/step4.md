@@ -3,10 +3,10 @@
 Click **envoy.yaml** in the frame to the right of this text to
 display the Envoy configuration file.
 
-Envoy must be configured to communicate with the SPIRE Agent by configuring a cluster that points to the Unix domain socket the SPIRE Agent provides.
+Enable Envoy to communicate with the SPIRE Agent by configuring a cluster that points to the Unix domain socket the SPIRE Agent provides.
 The `connect_timeout` for `spire-agent` influences how fast Envoy will be able to respond if the SPIRE Agent is not running when Envoy is started or if the SPIRE Agent is restarted.
 
-Click **Copy to Editor** to insert the `connect_timeout` for
+Click **Copy to Editor** below to insert the `connect_timeout` for
 `spire-agent` configuration into the Envoy configration file.
 
 <pre class="file" data-filename="envoy.yaml" data-target="insert" data-marker="#ADD_SPIRE_AGENT_CLUSTER">
@@ -23,7 +23,7 @@ Click **Copy to Editor** to insert the `connect_timeout` for
 To obtain a TLS certificate and private key from SPIRE, you can set up an SDS configuration within a TLS context.
 The name of the TLS certificate is the SPIFFE ID of the service that Envoy is acting as a proxy for.
 
-Click **Copy to Editor** to insert the SDS configuration into the
+Click **Copy to Editor** below to insert the SDS configuration into the
 Envoy configuration file.
 
 <pre class="file" data-filename="envoy.yaml" data-target="insert" data-marker="#ADD_TLS_CONTEXT">
@@ -43,7 +43,7 @@ Envoy configuration file.
 Envoy uses trusted CA certificates to verify peer certificates. Validation Contexts provide these trusted CA certificates. SPIRE can provide a validation context per trust domain.
 To obtain a validation context for a trust domain, you can configure a validation context within the SDS configuration of a TLS context, setting the name of the validation context to the SPIFFE ID of the trust domain.
 
-Click **Copy to Editor** to insert the validation context configuration into the
+Click **Copy to Editor** below to insert the validation context configuration into the
 Envoy configuration file.
 
 <pre class="file" data-filename="envoy.yaml" data-target="insert" data-marker="#ADD_VALIDATION_CONTEXT">
@@ -83,4 +83,5 @@ Check the Envoy log to ensure Envoy has started:
 
 `cat customer-service-envoy.log`{{execute}}
 
-At the end of the log, you should see `all dependencies initialized. starting workers`.
+At the end of the log, you should see:
+`all dependencies initialized. starting workers`
