@@ -2,11 +2,11 @@
 
 The customer API application configuration contains information about connecting
 to the database, as well as a path for the certificates and key, which are
-provided by spiffe-helper:
+provided by `spiffe-helper`:
 
 `cat customer/customer.conf`{{execute}}
 
-The `spiffe-helper` configuration specifies where the certificates and key are
+The `spiffe-helper` configuration for the customer app specifies where the certificates and key are
 placed. The `certDir` directory is shared by both the `customer` and `spiffe-helper`
 containers within the pod:
 

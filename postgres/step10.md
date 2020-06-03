@@ -30,6 +30,10 @@ Standard Postgres privileges still apply. The following command will deny
 
 `echo "ALTER USER symuser WITH NOLOGIN" | postgres/run psql -U postgres`{{execute}}
 
+Query the database again:
+
+`curl $(kubectl get service customer -o jsonpath="{..spec.clusterIP}"):8000/customers/1`{{execute}}
+
 The application will now return an error.
 
 # Re-enable user
@@ -37,4 +41,8 @@ The application will now return an error.
 Re-enable the user with the following command:
 `echo "ALTER USER symuser WITH LOGIN" | postgres/run psql -U postgres`{{execute}}
 
+Query the database again:
 
+`curl $(kubectl get service customer -o jsonpath="{..spec.clusterIP}"):8000/customers/1`{{execute}}
+
+The command succeeds once more.

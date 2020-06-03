@@ -13,4 +13,4 @@ environment:
 # Once the prompt returns, continue
 
 **IMPORTANT: Wait for the `>>> DONE! Ready for the next step` message before
-continuing. This will take a couple of minutes.**
+continuing. This may take a couple of minutes.**

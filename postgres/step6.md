@@ -3,11 +3,11 @@
 We will now create a database for the application, create the application
 DB user, and seed the database with some test data.
 
-Create `symbank` tablespace:
+Create a `symbank` tablespace:
 
 `postgres/run /usr/lib/postgresql/12/bin/createdb -U postgres symbank`{{execute}}
 
-Create `symuser` DB user with a random password:
+Create a `symuser` DB user with a random password:
 
 ```
 user_pass=$(openssl rand -base64 32)
@@ -17,7 +17,7 @@ echo " \
 " | postgres/run psql -U postgres
 ```{{execute}}
 
-# Create `customers` table and populate with test data
+Create a `customers` table and populate with test data:
 
 ```
 echo " \

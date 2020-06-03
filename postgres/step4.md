@@ -15,7 +15,7 @@ underneath `STATUS`.
 
 Two containers in this pod are launched - `postgres` for the database,
 and `spiffe-helper` which handles TLS certificates and rotation. To
-verify these containers, run:
+show these containers, run:
 
 `kubectl get pods -l app=postgres -o jsonpath='{.items[*].spec.containers[*].name}{"\n"}'`{{execute}}
 
@@ -32,7 +32,7 @@ To look at Postgres log:
 It's normal to see `received SIGHUP, reloading configuration files` in
 the Postgres log at this point in the demo.
 
-To look at spiffe-helper log:
+To look at `spiffe-helper` log:
 
 `kubectl logs --selector app=postgres --container=spiffe-helper`{{execute}}
 
