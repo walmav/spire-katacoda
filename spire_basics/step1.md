@@ -11,9 +11,9 @@ The tarball includes:
 Let's see the server configuration file:
 `cat server.conf`{{execute}}
 
-Before we run the server, we'll need to set the `trust_domain` in `server.conf`.
+Before we run the SPIRE Server, we'll need to set the `trust_domain` in `server.conf`.
 
-A trust domain is an arbitrary identifier for a group of entities that expect to communicate securely. The group can be an organization or a set of hosts, such as the host of an application and the host of a database. Each SPIRE server has a single, unique trust domain.
+A trust domain is an arbitrary identifier for a group of entities that expect to communicate securely. The group can be an organization or a set of hosts, such as the host of an application and the host of a database. Each SPIRE Server has a single, unique trust domain.
 
 The trust domain is the root element in a SPIFFE ID. A SPIFFE ID is a URI in the format `spiffe://trust domain/workload identifier` that uniquely identifies a workload for SPIRE authentication.
 
@@ -21,7 +21,7 @@ So let's set our trust domain:
 `sed -i 's/<TRUST_DOMAIN>/[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/g' server.conf`{{execute}}
 
 We'll verify the change:
-`grep katacoda server.conf`{{execute}}
+`grep trust_domain server.conf`{{execute}}
 
 For this demo, the trust domain is set to the Katacoda host name.
 
