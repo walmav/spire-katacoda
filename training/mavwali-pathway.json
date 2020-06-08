@@ -1,0 +1,27 @@
+{
+  "title": "Workshop: Cloud Native Service Authentication for Zero Trust Security With SPIRE",
+  "description": "",
+  "courses": [
+    {
+      "pathway_id": "mavwali",
+      "id": "workshop/deploying-istio",
+      "course_id": "deploying-istio",
+      "title": "SPIFFE/SPIRE: Provisioning dynamic service identities for Envoy",
+      "description": "Learn how to setup SPIRE as a Secret Discovery Service(SDS) Server, allowing Envoy to dynamically retrieve and rotate workload identities"
+    },
+    {
+      "pathway_id": "mavwali",
+      "id": "connecting-controlling-microservices/traffic-shaping",
+      "course_id": "traffic-shaping",
+      "title": "SPIFFE/SPIRE: X.509-SVID Authentication to Postgres",
+      "description": "SPIFFE/SPIRE: Demonstrate X.509-SVID Authentication to Postgres"
+    },
+    {
+      "pathway_id": "mavwali",
+      "id": "connecting-controlling-microservices/traffic-shaping",
+      "course_id": "traffic-shaping",
+      "title": "SPIFFE/SPIRE: Fundamentals",
+      "description": "SPIFFE/SPIRE: Fundamentals"
+    }
+  ]
+}
