@@ -40,7 +40,7 @@ done
 chmod +x postgres/run
 
 echo "Obtaining public key for validating SAT attestation."
-kubectl cp -n kube-system kube-apiserver-master:/etc/kubernetes/pki/sa.pub spire/server.cert
+kubectl cp -n kube-system kube-apiserver-controlplane:etc/kubernetes/pki/sa.pub spire/server.cert
 
 echo "export PS1=\"\[\e[32;1m\]\[\e[44m\]--------\[\e[40m\]\n\[\e[33;1m\]\h\[\e[32;1m\] $\[\e[0m\] \"" >>.bashrc
 
